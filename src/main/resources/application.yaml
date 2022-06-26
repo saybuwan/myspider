@@ -1,0 +1,49 @@
+server:
+  port: 8092
+  tomcat:
+    uri-encoding: gbk
+
+#    remote-ip-header: X-Real-IP
+#    protocol-header: X-Forwarded-For
+
+#  use-forward-headers: true
+#mybatis-plus配置控制台打印完整带参数SQL语句
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+mybatis:
+  #对应实体类路径
+  type-aliases-package: cn.ldsnb
+  #对应mapper映射文件路径
+  mapper-locations: mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+
+
+spring:
+
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+#    url: jdbc:mysql://172.31.107.135:3306/ldsnb?useUnicode=true&amp&characterEncoding=utf-8&useSSL=false
+    url:
+    username:
+    password:
+    hikari:
+      maximum-pool-size: 40
+      max-lifetime: 60000
+      connection-timeout: 6000
+      idle-timeout: 60000
+
+redis:
+  server:
+    pattern: cluster
+    nodes: 101.43.68.131:7001,101.43.68.131:7002,101.43.68.131:7000,101.43.68.131:8001,101.43.68.131:8002,101.43.68.131:8000
+    password: 
+    maxIdle: 8
+    minIdle: 4
+    maxTotal: 8
+    maxWaitMillis: 6000
+    timeOut: 6000
+
+
